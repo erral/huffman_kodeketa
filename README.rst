@@ -14,6 +14,5 @@ Enuntziatu zehatza enuntziatua.txt izeneko fitxategian aurkituko duzu.
 
 
 
-_`Huffman kodea`: https://en.wikipedia.org/wiki/Huffman_coding
-
-_`Haskell`: https://en.wikipedia.org/wiki/Haskell_(programming_language)
+.. _`Huffman kodea`: https://en.wikipedia.org/wiki/Huffman_coding
+.. _`Haskell`: https://en.wikipedia.org/wiki/Haskell_(programming_language)
