@@ -222,10 +222,11 @@ xxx eta Dxxx eduki berdina badute, amaitu duzue.
 
 OHARRAK:
 ==========
-# Zuhaitzak maneiatzen eta itzultzen dituzuen funtzioen zuzentasuna ikusteko deriving Show egitea guztiz kaskarra da, 
+
+* Zuhaitzak maneiatzen eta itzultzen dituzuen funtzioen zuzentasuna ikusteko deriving Show egitea guztiz kaskarra da, 
 egizue zuhaitz desberdinentzat ikustaratze funtzio egokia/k.
-# MergeSort ordenazio metodo bakarra egitea eskatzen zaizue praktika osorako, hura ahalik eta generikoena izan beharko du, 
+* MergeSort ordenazio metodo bakarra egitea eskatzen zaizue praktika osorako, hura ahalik eta generikoena izan beharko du, 
 haren lortuGakoa parametro-funtzioaren egokitzapen desberdinek behar dituzuen ordenazioak eman ditzaten.
-# Enuntziatua eskatzen zaizuen derrigorrez funtzionatzen itzuli behar duzuen betebehar minimoa da. Hortik abiatuta 
+* Enuntziatua eskatzen zaizuen derrigorrez funtzionatzen itzuli behar duzuen betebehar minimoa da. Hortik abiatuta 
 hobekuntzak ongietorriak dira.
-# Egiten duzuen praktikaren dokumentazioa entregatu behar duzue, gutxieneko zerrendaketa bat luzatuko zaizue.
+* Egiten duzuen praktikaren dokumentazioa entregatu behar duzue, gutxieneko zerrendaketa bat luzatuko zaizue.
