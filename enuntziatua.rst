@@ -1,77 +1,101 @@
-
-
-
 TESTUINGURUA
 Testuzko informazioa modu trinkoan gorde nahi bada, luzera finkoko karaktereen kodeketa alde batetara utzi behar dugu eta, aldiz, karaktereen agerpen-maiztasunean oinarritutako kodeketara jo. Hau, testuan maizen agertzen diren karaktereek luzera motzen duten kodeketa-hitzak emanez lortzen da.
-Honela, “arrastoa” hitza soilik bagenu eta honi legokiokeen kodeketa bat:
+Honela, “arrastoa” hitza soilik bagenu eta honi legokiokeen kodeketa bat::
 
-'a'-->0         't'-->110           's'-->1111
-'r'-->10            'o'-->1110
 
-izanik, “arrastoa” kodetuko lukeen biten sekuentzia  01010011 11110111 00 izango litzateke. Hau, jatorrizkoa baino luzeagoa izan arren, paketatze prozesu bat aplikatuz kodeketa trinkoagoa lortzen da, hauxe izanik bidaltzen dena makina batetik bestera. Ondoren, helmuga makinan alderantzizko pausoak ematen dira. Gure adibideari heutsiz, adibidez, izango genukeena litzateke:
+  'a'-->0         't'-->110           's'-->1111
+  'r'-->10        'o'-->1110
 
-arrastoa    0101001 1111101 1100      )}`   0101001 1111101 1100    arrastoa
+izanik, “arrastoa” kodetuko lukeen biten sekuentzia  01010011 11110111 00 izango litzateke. Hau, jatorrizkoa baino luzeagoa 
+izan arren, paketatze prozesu bat aplikatuz kodeketa trinkoagoa lortzen da, hauxe izanik bidaltzen dena makina batetik bestera. 
+Ondoren, helmuga makinan alderantzizko pausoak ematen dira. Gure adibideari heutsiz, adibidez, izango genukeena litzateke::
+
+    arrastoa    0101001 1111101 1100      )}`   0101001 1111101 1100    arrastoa
     Kodeketa    Trinkoketa  Destrinkoketa   Deskodeketa
 
 
-Gure kasurako, eta sinplifikatzearren, trinkoketa/destrinkoketa pausoak alde batetara utziko ditugu eta kodeketa/deskodeketa prozesuetan oinarrituko.
-Deskodeteta modu bakarrean ulergarria izan dadin, kodeketa-hitzak ezin dira edozein modutan aukeratu. Eta hori, kodeketa-hitz bakoitzak beste hitzen “aurrezkiak” ez direnean lortzen da. Propietate hau betetzen duten kodeketa metodoei aurrekodeketa metodoak deritze.
-Bestalde, kodeketa optimoa izatea nahi da, hots, testu kodifikatuaren luzera minimoa izatea. Zehazki, Kj (1jn) n karaktere izanik, non haien agerpen-maiztasunak Mj diren eta Lj luzerak dituzten kodeak aukeratzen badira testua kodetzeko, jatorrizko testuaren kodeketaren luzera honakoa litzateke:
+Gure kasurako, eta sinplifikatzearren, trinkoketa/destrinkoketa pausoak alde batetara utziko ditugu eta kodeketa/deskodeketa 
+prozesuetan oinarrituko.
+
+Deskodeteta modu bakarrean ulergarria izan dadin, kodeketa-hitzak ezin dira edozein modutan aukeratu. Eta hori, kodeketa-hitz
+bakoitzak beste hitzen “aurrezkiak” ez direnean lortzen da. Propietate hau betetzen duten kodeketa metodoei aurrekodeketa 
+metodoak deritze.
+
+Bestalde, kodeketa optimoa izatea nahi da, hots, testu kodifikatuaren luzera minimoa izatea. Zehazki, Kj (1<j<n) n karaktere i
+zanik, non haien agerpen-maiztasunak Mj diren eta Lj luzerak dituzten kodeak aukeratzen badira testua kodetzeko, jatorrizko 
 
 Aurrekodeketa optimoa sortzen duen metodo bat Huffman kodeketa da.
 
-Huffman kodeak (metodoa aplikatzearen emaitza) testuen karaktereak banaka-banaka kodetzen dituzten 0en eta 1en sekuentziak dira, non jatorrizko testuan maizen agertzen diren karaktereei esleitutako kodeketa-hitzak hitz motzenak diren. (Argipen gehiago: sarean edo “Algoritmika”-ko liburuan pp. [129-137] ikus).
+Huffman kodeak (metodoa aplikatzearen emaitza) testuen karaktereak banaka-banaka kodetzen dituzten 0en eta 1en sekuentziak dira,
+non jatorrizko testuan maizen agertzen diren karaktereei esleitutako kodeketa-hitzak hitz motzenak diren. (Argipen gehiago:
+sarean edo “Algoritmika”-ko liburuan pp. [129-137] ikus).
 
-Praktika honetan testu fitxategi bat emanik Huffman kodeketa/deskodeketa prozesuak aplikatuko dizkiogu, lehenen Huffman zuhaitza eraikiko dugu kodeketa-hitzak mugatzeko; ondoren, zuhaitza hau erabiliz jatorrizko testua kodifikatuko dugu; eta azkenik, kodifikaziotik eta eraikitako Huffman zuhaitza erabiliz, jatorrizko testua berreskuratuko dugu. Hori dena lortzeko, praktika 5 fasetan banatu dizuet, fase bakoitzean egin behar duzuena zehazturik ematen dizuet.
-1 fasea)
-Helburua:   Karaktere zerrenda bat emanik (Karaktere,Maiztasuna) bikoteen zerrenda ordenatua lortu behar da, non sarrerako karaktere desberdin bakoitzeko bikote bat existituko duen emaitza zerrendan (k,m) bikotea, k karakterea adieraziko duelarik eta m k karraktere hori sarrerako stringan agertzen den aldi kopurua jasoko duen. Bikoteen emaitza-zerrenda bikoteko bigarren osagaiarekiko (hots, maiztasunarekiko) ordena gorakorrean ordenaturik egon behar du.
-    Oharra:
-Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da:
 
-scanTestua:: String -> [(Char,Int)]
+Praktika honetan testu fitxategi bat emanik Huffman kodeketa/deskodeketa prozesuak aplikatuko dizkiogu, lehenen Huffman 
+zuhaitza eraikiko dugu kodeketa-hitzak mugatzeko; ondoren, zuhaitza hau erabiliz jatorrizko testua kodifikatuko dugu; eta 
+azkenik, kodifikaziotik eta eraikitako Huffman zuhaitza erabiliz, jatorrizko testua berreskuratuko dugu. Hori dena lortzeko,
+praktika 5 fasetan banatu dizuet, fase bakoitzean egin behar duzuena zehazturik ematen dizuet.
 
-(A) aukera: Zerrendak erabiliaz. Zenbat eta stringa luzeagoa izan orduan eta motelago da soluzio hau. Prozesua honakoa izan liteke, adibidez:
-Stringeko karaktere bakoitzarik 1 balioa esleitu:
-*:: String -> [(Char,Int)]
-“arrakasta” - [(‘a’,1),(‘r‘,l),(‘r’,1),(‘a’,1),(‘k’,1),(‘a’,1),
-(‘s’,1),(‘t’,1),(‘a’,1)]
-bikoteen kate berriko balioak bikoteko lehen balioarekiko ordenatu:
-*:: [(Char,Int)]-> [(Char,Int)]
- [(‘a’,1), (‘a’,1), (‘a’,1), (‘a’,1), (‘k’,1), (‘r‘,l), (‘r’,1), (‘s’,1), (‘t’,1)]
-Karaktere berdinak dituzten kodeak bikote bakar batean bat egin, bikoteko lehenengoa karakterea izanik eta bigarrena haren agerpen maiztasuna (bat egin diren bikote kopurua) izanik:
-*:: [(Char,Int)]-> [(Char,Int)]
- [(‘a’,4), (‘k’,1), (‘r‘,2), (‘s’,1), (‘t’,1)]
+1 fasea
+==========
+
+Helburua:   Karaktere zerrenda bat emanik (Karaktere,Maiztasuna) bikoteen zerrenda ordenatua lortu behar da, non sarrerako
+karaktere desberdin bakoitzeko bikote bat existituko duen emaitza zerrendan (k,m) bikotea, k karakterea adieraziko duelarik 
+eta m k karraktere hori sarrerako stringan agertzen den aldi kopurua jasoko duen. Bikoteen emaitza-zerrenda bikoteko bigarren
+osagaiarekiko (hots, maiztasunarekiko) ordena gorakorrean ordenaturik egon behar du.
+    
+Oharra:
+    
+Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
+
+   scanTestua:: String -> [(Char,Int)]
+
+* (A) aukera: Zerrendak erabiliaz. Zenbat eta stringa luzeagoa izan orduan eta motelago da soluzio hau. Prozesua honakoa izan
+liteke, adibidez::
+
+  Stringeko karaktere bakoitzarik 1 balioa esleitu::
+  *:: String -> [(Char,Int)]
+  "arrakasta" - [(‘a’,1),(‘r‘,l),(‘r’,1),(‘a’,1),(‘k’,1),(‘a’,1),(‘s’,1),(‘t’,1),(‘a’,1)]
+  bikoteen kate berriko balioak bikoteko lehen balioarekiko ordenatu::
+ 
+ *:: [(Char,Int)]-> [(Char,Int)]
+ [(‘a’,1), (‘a’,1), (‘a’,1), (‘a’,1), (‘k’,1), (‘r‘,l), (‘r’,1), (‘s’,1), (‘t’,1)]
+ 
+Karaktere berdinak dituzten kodeak bikote bakar batean bat egin, bikoteko lehenengoa karakterea izanik eta bigarrena haren
+agerpen maiztasuna (bat egin diren bikote kopurua) izanik::
+
+  *:: [(Char,Int)]-> [(Char,Int)]
+  [(‘a’,4), (‘k’,1), (‘r‘,2), (‘s’,1), (‘t’,1)]
 
 Oharra: Gakodun osagaiez osatutako zerrenda ordenatzeko MergeSort ordenazio algoritmoa erabil ezazue argumentu bat gehiagorekin, gakoaLortu funtzioa, non funtzio horrek zerrendako osagai bat emanik osagaiko gakoa itzuliko duen.
 
 
-(B) aukera: AVL zuhaitz bitar orekatuak erabili. Zuhaitzeko osagaiak (Karakterea, Agerpen-Maiztasuna). Prozesua honakoa izan liteke, adibidez:
-Sarrerako stringeko karaktereekin AVLa eraikitzen joan:
-* :: String -> AVL [(Char,Int)]
-Tratatzen ari garen sarrerako K karakterea
-baldin lehenengo aldia da agertzen dela, orduan AVL zuhaitzari (K,1) bikotea gehitzen zaio.
-baldin aurrez noizbait K agertu bada, eta ondorioz AVL zuhaitzean (K,N) bikoteak existitzen du, orduan AVL zuhaitzeko (K,N) kotea (K,N+1) bikoteaz ordezkatu.
-AVL zuhaitza lautu, sarrerako karaktere desberdinen eta haien maiztasunak bikoteetan jasota dituen zerrenda lortzeko
-* :: AVL [(Char,Int)] -> [(Char,Int)]
+* (B) aukera: AVL zuhaitz bitar orekatuak erabili. Zuhaitzeko osagaiak (Karakterea, Agerpen-Maiztasuna). Prozesua honakoa izan 
+liteke, adibidez:
 
-2 fasea)
-Helburua:   jatorrizko stringari dagokion HuffmanZu zuhaitza eraiki, maiztasunen zerrendak erabiliz. Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da:
+ Sarrerako stringeko karaktereekin AVLa eraikitzen joan:
+    * :: String -> AVL [(Char,Int)]
+    Tratatzen ari garen sarrerako K karakterea
+    baldin lehenengo aldia da agertzen dela, orduan AVL zuhaitzari (K,1) bikotea gehitzen zaio.
+    baldin aurrez noizbait K agertu bada, eta ondorioz AVL zuhaitzean (K,N) bikoteak existitzen du, orduan AVL zuhaitzeko (K,N) kotea (K,N+1) bikoteaz ordezkatu.
+    AVL zuhaitza lautu, sarrerako karaktere desberdinen eta haien maiztasunak bikoteetan jasota dituen zerrenda lortzeko
+    * :: AVL [(Char,Int)] -> [(Char,Int)]
 
-huffZu:: String -> HuffmanZu
+2 fasea
+=============
 
-“arrakasta”             “arrosali”
-[(‘a’,4),(‘k’,1),(‘r‘,2),(‘s’,1),(‘t’,1)]           [(‘a’,2),(‘i’,1),(‘l’,1),(‘r‘,2),(‘s’,1)]
-
+Helburua:   jatorrizko stringari dagokion HuffmanZu zuhaitza eraiki, maiztasunen zerrendak erabiliz. Efektu hori kalkulatuko 
+duen funtzioaren zehaztapena honako hau da::
 
+  huffZu:: String -> HuffmanZu
 
+    “arrakasta”             “arrosali”
+    [(‘a’,4),(‘k’,1),(‘r‘,2),(‘s’,1),(‘t’,1)]           [(‘a’,2),(‘i’,1),(‘l’,1),(‘r‘,2),(‘s’,1)]
 
-
-
-
-
-'a'0       'k'1110            'a'00      's'101
-'r'10      's'1111            'r'01      'i'110
-'t'110                     'o'100 'l'111
+    
+    'a'0       'k'1110            'a'00      's'101
+    'r'10      's'1111            'r'01      'i'110
+    't'110                     'o'100 'l'111
 
 Maiztasun handienak dituzten karaktereei kodeketa-hitz txikienak dagozkie, eta zuhaitzean gorago agertzen dira.
 Zuhaitza interpretatzeko garaian: ezkerreko adarra 0 eta eskuineko adarra 1
