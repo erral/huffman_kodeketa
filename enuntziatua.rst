@@ -97,18 +97,22 @@ duen funtzioaren zehaztapena honako hau da::
 
   huffZu:: String -> HuffmanZu
 
-    “arrakasta”             “arrosali”
-    [(‘a’,4),(‘k’,1),(‘r‘,2),(‘s’,1),(‘t’,1)]           [(‘a’,2),(‘i’,1),(‘l’,1),(‘r‘,2),(‘s’,1)]
+    "arrakasta"             
+    [(‘a’,4),(‘k’,1),(‘r‘,2),(‘s’,1),(‘t’,1)]           
+
+    "arrosali"
+    [(‘a’,2),(‘i’,1),(‘l’,1),(‘r‘,2),(‘s’,1)]
 
     
-    'a'0       'k'1110            'a'00      's'101
-    'r'10      's'1111            'r'01      'i'110
-    't'110                     'o'100 'l'111
+    'a'=>0       'k'=>1110    'a'=>00      's'=>101
+    'r'=>10      's'=>1111    'r'=>01      'i'=>110
+    't'=>110     'o'=>100     l'=>111
+
 
 Maiztasun handienak dituzten karaktereei kodeketa-hitz txikienak dagozkie, eta zuhaitzean gorago agertzen dira.
 Zuhaitza interpretatzeko garaian: ezkerreko adarra 0 eta eskuineko adarra 1
 
-**Prozesua**:   
+**Prozesua**
 
 * HuffmanZu zuhaitzen zerrenda ordenatu bat maneiatuko du prozesuak. Ordenazioaren irizpide edo gakoa, HuffmanZu zuhaitz bakoitzaren erroan dagoen maiztasun-balioa da.
 
@@ -134,21 +138,22 @@ MergeSort metodoa erabili ezazue eta hari pasa behar diozuen gakoLortu funtzio e
 3 fasea
 ==========
 
-**Helburua**:   jatorrizko testua edo stringa kodetu, HuffmanZu zuhaitza erabiliz. Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
+**Helburua**: jatorrizko testua edo stringa kodetu, HuffmanZu zuhaitza erabiliz. Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
+
   type Kode = String          -- ‘0’ eta ‘1’ karaktereez osatua
   kodetu:: String -> HuffmanZu-> Kode
 
 **Prozesua**
 
 * Huffman zuhaitzetik abiaturik kodeketa-hitzen taula lortu behar duzue lehenen. Hau da, sarrerako karaktere desberdin 
-bakoitza ordezkatuko duen ‘0’ edo ’1’ karaktereen zerrenda. Taula, bikoteen zerrenda bat izango da, non bikotekeko 
+bakoitza ordezkatuko duen '0' edo '1' karaktereen zerrenda. Taula, bikoteen zerrenda bat izango da, non bikotekeko 
 lehenengo osagaia karakterea izango den eta bigarrena hari dagokion kodeketa-hitza.
 * Zuhaitzak dituen adar adina kodeketa-hitz lortu behar dituzue.
 * Hosto bakoitza kodetu behar den karaktere desberdin bat da.
 * Karaktere bakoitzak kodetzeko erabiliko den kodeketa-hitzak, zuhaitzaren errotik hostoraino doan bideak ematen du:
 * Hasieran kodeketa hitza hutsik dago
-* Adarkatzea ezkerretara gertatzen denean, orain arte lortu den kodeketari ‘0’ gehitzen zaio.
-* Adarkatzea eskuinetara gertatzen denean, orain arte lortu den kodeketari ‘1’ gehitzen zaio.
+* Adarkatzea ezkerretara gertatzen denean, orain arte lortu den kodeketari '0' gehitzen zaio.
+* Adarkatzea eskuinetara gertatzen denean, orain arte lortu den kodeketari '1' gehitzen zaio.
 * Hostora iristean, kodeketa-hitzaren eraikuntza amaitzen da::
 
    *:: HuffmanZ -> [(Char, Kode)]
@@ -174,25 +179,23 @@ desegite prozesuan. Efektu hori kalkulatuko duen funtzioaren zehaztapena honako 
 **Prozesua**
 
 * Kodifikazio sekuentziak dioen moduan, zuhaitza korritu behar da:
-* Sekuentzian ‘0’ bat badator, ezkerreko azpizuhaitzera jo behar da, baldin eta honek existitzen badu
-* Sekuentzian ‘1’ bat badator, eskuineko azpizuhaitzera jo behar da, baldin eta honek existitzen badu
-* Sekuentzian ‘0’ edo ‘1’ bat edukiz azpizuhaitzik existitzen ez badu, hosto batean zaudetelako da, eta orain arteko 
-sekuentziak kodeketa-hitz bat osatzen du, hain zuzen, hostoan dagoen karaktereari dagokiona. Ondorioz, hostoko karakterea 
-itzuli behar duzue.
+* Sekuentzian '0' bat badator, ezkerreko azpizuhaitzera jo behar da, baldin eta honek existitzen badu
+* Sekuentzian '1' bat badator, eskuineko azpizuhaitzera jo behar da, baldin eta honek existitzen badu
+* Sekuentzian '0' edo '1' bat edukiz azpizuhaitzik existitzen ez badu, hosto batean zaudetelako da, eta orain arteko sekuentziak kodeketa-hitz bat osatzen du, hain zuzen, hostoan dagoen karaktereari dagokiona. Ondorioz, hostoko karakterea itzuli behar duzue.
 * Oraindik tratatu gabeko 0a edo 1a eta ondorengoak berriz ere Huffman zuhaitz osotik abiatuz deskodetu behar duzue
 * Prozesua amaitzen da kodeketa sekuentzia amaitzen denean::
 
-  "arrakasta"    “0101001110011111100”+ HuffmanZu
-         “a” “101001110011111100”
-         “ar”    “1001110011111100”
-         “arr”   “01110011111100”
-         “arra”  “1110011111100”
-         “arrak” ”011111100”
-         “arraka”    “11111100”
-         “arrakas”   “1100”
-         “arrakast”  “0”
-         “arrakasta” “”
-         “arrakasta”
+  "arrakasta" =>       "0101001110011111100" + HuffmanZu
+      =>   "a"         "101001110011111100"
+      =>   "ar"        "1001110011111100"
+      =>   "arr"       "01110011111100"
+      =>   "arra"      "1110011111100"
+      =>   "arrak"     "011111100"
+      =>   "arraka"    "11111100"
+      =>   "arrakas"   "1100"
+      =>   "arrakast"  "0"
+      =>   "arrakasta" ""
+      =>   "arrakasta"
 
 5 fasea
 ===========
@@ -202,22 +205,16 @@ itzuli behar duzue.
 **Prozesua**:
 
 * Huffmanen kodeketa moduluari izena eman (fitxategiri izen bera eman).
-* Modulu honek esportatuko dituen funtzioak izango dira soilik: huffZu, kodetu eta deskodetu.
-* Erosoago egitearren, funtzio hauen parametrizazioa aldatu eta, ondorioz, kodeak efektu bera eduki dezan, behar diren 
-aldaketak egin::
-  huffZu:: String -> HuffmanZ
-  kodetu:: String -> (HuffmanZ,Kode)
-  deskodetu:: (HuffmanZ,Kode) -> String
+* Modulu honek esportatuko dituen funtzioak izango dira soilik: `huffZu`, `kodetu` eta `deskodetu`.
+* Erosoago egitearren, funtzio hauen parametrizazioa aldatu eta, ondorioz, kodeak efektu bera eduki dezan, behar diren aldaketak egin::
+    huffZu:: String -> HuffmanZ
+    kodetu:: String -> (HuffmanZ,Kode)
+    deskodetu:: (HuffmanZ,Kode) -> String
 * Zuhaitz bitarren eta AVL modulu generikoen "inportazioa" egin modulu berritik.
-* Huffmanen kodeketak inplementatzen duen moduluari Sarrera/Irteerako geruza gain jartzeko beste modulu bat egizu: Izena 
-eman eta aurreko ataleko inportatu
+* Huffmanen kodeketak inplementatzen duen moduluari Sarrera/Irteerako geruza gain jartzeko beste modulu bat egizu: Izena eman eta aurreko ataleko inportatu
 * Eska iezaiozue erabiltzaileari honek kodetu nahi duen fitxategiaren izena, demagun xxx
-* Kodeketa irauli ezazue izen berdina baina K hizkiaz hasten fitxategira, Kxxx. Huffmanen kodeketa zuhaitza aldagai
-batean utz ezazue, fitxategira irauli gabe. Erabiltzaileari egindakoaren berri eman mezu baten bidez.
-* Kodeketa duen fitxategitik eta Huffmanen zuhaitza erabiliz, jatorrizko testua berreskuratu nahi duen erabiltzaileari 
-galdetu. erantzuna ezezkoa bada, agurtu eta amaitu. Aldiz, baiezko bada, orduan izen berdina baina D hizkiaz hasten den 
-fitxategira irauli ezazue deskodeketa, Dxxx, eta egindakoaren mezu emanaz erabiltzaileari, agurtu eta amaitu.
-xxx eta Dxxx eduki berdina badute, amaitu duzue.
+* Kodeketa irauli ezazue izen berdina baina K hizkiaz hasten fitxategira, Kxxx. Huffmanen kodeketa zuhaitza aldagai batean utz ezazue, fitxategira irauli gabe. Erabiltzaileari egindakoaren berri eman mezu baten bidez.
+* Kodeketa duen fitxategitik eta Huffmanen zuhaitza erabiliz, jatorrizko testua berreskuratu nahi duen erabiltzaileari galdetu. erantzuna ezezkoa bada, agurtu eta amaitu. Aldiz, baiezko bada, orduan izen berdina baina D hizkiaz hasten den fitxategira irauli ezazue deskodeketa, Dxxx, eta egindakoaren mezu emanaz erabiltzaileari, agurtu eta amaitu. xxx eta Dxxx eduki berdina badute, amaitu duzue.
 
 
 OHARRAK:
