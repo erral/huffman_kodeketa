@@ -1,4 +1,7 @@
+=============
 TESTUINGURUA
+=============
+
 Testuzko informazioa modu trinkoan gorde nahi bada, luzera finkoko karaktereen kodeketa alde batetara utzi behar dugu eta, aldiz, karaktereen agerpen-maiztasunean oinarritutako kodeketara jo. Hau, testuan maizen agertzen diren karaktereek luzera motzen duten kodeketa-hitzak emanez lortzen da.
 Honela, “arrastoa” hitza soilik bagenu eta honi legokiokeen kodeketa bat::
 
