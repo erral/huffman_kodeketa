@@ -42,27 +42,27 @@ praktika 5 fasetan banatu dizuet, fase bakoitzean egin behar duzuena zehazturik 
 1 fasea
 ==========
 
-Helburua:   Karaktere zerrenda bat emanik (Karaktere,Maiztasuna) bikoteen zerrenda ordenatua lortu behar da, non sarrerako
+**Helburua**: Karaktere zerrenda bat emanik (Karaktere,Maiztasuna) bikoteen zerrenda ordenatua lortu behar da, non sarrerako
 karaktere desberdin bakoitzeko bikote bat existituko duen emaitza zerrendan (k,m) bikotea, k karakterea adieraziko duelarik 
 eta m k karraktere hori sarrerako stringan agertzen den aldi kopurua jasoko duen. Bikoteen emaitza-zerrenda bikoteko bigarren
 osagaiarekiko (hots, maiztasunarekiko) ordena gorakorrean ordenaturik egon behar du.
     
-Oharra:
-    
-Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
+*Oharra*: Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
 
    scanTestua:: String -> [(Char,Int)]
 
 * (A) aukera: Zerrendak erabiliaz. Zenbat eta stringa luzeagoa izan orduan eta motelago da soluzio hau. Prozesua honakoa izan
-liteke, adibidez::
+liteke, adibidez:
 
   Stringeko karaktere bakoitzarik 1 balioa esleitu::
-  *:: String -> [(Char,Int)]
-  "arrakasta" - [(‘a’,1),(‘r‘,l),(‘r’,1),(‘a’,1),(‘k’,1),(‘a’,1),(‘s’,1),(‘t’,1),(‘a’,1)]
+  
+    *:: String -> [(Char,Int)]
+    "arrakasta" - [(‘a’,1),(‘r‘,l),(‘r’,1),(‘a’,1),(‘k’,1),(‘a’,1),(‘s’,1),(‘t’,1),(‘a’,1)]
+  
   bikoteen kate berriko balioak bikoteko lehen balioarekiko ordenatu::
  
- *:: [(Char,Int)]-> [(Char,Int)]
- [(‘a’,1), (‘a’,1), (‘a’,1), (‘a’,1), (‘k’,1), (‘r‘,l), (‘r’,1), (‘s’,1), (‘t’,1)]
+     *:: [(Char,Int)]-> [(Char,Int)]
+     [(‘a’,1), (‘a’,1), (‘a’,1), (‘a’,1), (‘k’,1), (‘r‘,l), (‘r’,1), (‘s’,1), (‘t’,1)]
  
 Karaktere berdinak dituzten kodeak bikote bakar batean bat egin, bikoteko lehenengoa karakterea izanik eta bigarrena haren
 agerpen maiztasuna (bat egin diren bikote kopurua) izanik::
@@ -70,24 +70,29 @@ agerpen maiztasuna (bat egin diren bikote kopurua) izanik::
   *:: [(Char,Int)]-> [(Char,Int)]
   [(‘a’,4), (‘k’,1), (‘r‘,2), (‘s’,1), (‘t’,1)]
 
-Oharra: Gakodun osagaiez osatutako zerrenda ordenatzeko MergeSort ordenazio algoritmoa erabil ezazue argumentu bat gehiagorekin, gakoaLortu funtzioa, non funtzio horrek zerrendako osagai bat emanik osagaiko gakoa itzuliko duen.
+Oharra: Gakodun osagaiez osatutako zerrenda ordenatzeko MergeSort ordenazio algoritmoa erabil ezazue argumentu bat gehiagorekin,
+gakoaLortu funtzioa, non funtzio horrek zerrendako osagai bat emanik osagaiko gakoa itzuliko duen.
 
 
 * (B) aukera: AVL zuhaitz bitar orekatuak erabili. Zuhaitzeko osagaiak (Karakterea, Agerpen-Maiztasuna). Prozesua honakoa izan 
 liteke, adibidez:
 
- Sarrerako stringeko karaktereekin AVLa eraikitzen joan:
-    * :: String -> AVL [(Char,Int)]
-    Tratatzen ari garen sarrerako K karakterea
-    baldin lehenengo aldia da agertzen dela, orduan AVL zuhaitzari (K,1) bikotea gehitzen zaio.
-    baldin aurrez noizbait K agertu bada, eta ondorioz AVL zuhaitzean (K,N) bikoteak existitzen du, orduan AVL zuhaitzeko (K,N) kotea (K,N+1) bikoteaz ordezkatu.
-    AVL zuhaitza lautu, sarrerako karaktere desberdinen eta haien maiztasunak bikoteetan jasota dituen zerrenda lortzeko
-    * :: AVL [(Char,Int)] -> [(Char,Int)]
+ Sarrerako stringeko karaktereekin AVLa eraikitzen joan::
+
+      * :: String -> AVL [(Char,Int)]
+    
+ Tratatzen ari garen sarrerako K karakterea baldin lehenengo aldia da agertzen dela, orduan AVL zuhaitzari (K,1) bikotea 
+ gehitzen zaio. baldin aurrez noizbait K agertu bada, eta ondorioz AVL zuhaitzean (K,N) bikoteak existitzen du, orduan AVL 
+ zuhaitzeko (K,N) kotea (K,N+1) bikoteaz ordezkatu.
+ 
+ AVL zuhaitza lautu, sarrerako karaktere desberdinen eta haien maiztasunak bikoteetan jasota dituen zerrenda lortzeko::
+
+      * :: AVL [(Char,Int)] -> [(Char,Int)]
 
 2 fasea
 =============
 
-Helburua:   jatorrizko stringari dagokion HuffmanZu zuhaitza eraiki, maiztasunen zerrendak erabiliz. Efektu hori kalkulatuko 
+**Helburua**: jatorrizko stringari dagokion HuffmanZu zuhaitza eraiki, maiztasunen zerrendak erabiliz. Efektu hori kalkulatuko 
 duen funtzioaren zehaztapena honako hau da::
 
   huffZu:: String -> HuffmanZu
@@ -103,43 +108,41 @@ duen funtzioaren zehaztapena honako hau da::
 Maiztasun handienak dituzten karaktereei kodeketa-hitz txikienak dagozkie, eta zuhaitzean gorago agertzen dira.
 Zuhaitza interpretatzeko garaian: ezkerreko adarra 0 eta eskuineko adarra 1
 
-Prozesua:   HuffmanZu zuhaitzen zerrenda ordenatu bat maneiatuko du prozesuak. Ordenazioaren irizpide edo gakoa, HuffmanZu 
-zuhaitz bakoitzaren erroan dagoen maiztasun-balioa da.
+**Prozesua**:   
 
-(Karaktere, Maiztasun) bikoteen zerrenda, HuffmanZu hostoen zerrenda ordenatua bihur ezazue. Ordenazio ordenak gorakorra
+* HuffmanZu zuhaitzen zerrenda ordenatu bat maneiatuko du prozesuak. Ordenazioaren irizpide edo gakoa, HuffmanZu zuhaitz bakoitzaren erroan dagoen maiztasun-balioa da.
+
+* (Karaktere, Maiztasun) bikoteen zerrenda, HuffmanZu hostoen zerrenda ordenatua bihur ezazue. Ordenazio ordenak gorakorra
 izan behar du, eta irizpidea goian aipaturikoa, hau da, erroetako maiztasunen balioekikoa. 1 faseko (A) aukeran aipatutako
 MergeSort metodoa erabili ezazue eta hari pasa behar diozuen gakoLortu funtzio egokia defini::
   * :: [(Char,Int)] -> [HuffmanBT]
-   [(HP (‘k’,1)), (HP (‘s’,1)), (HP (‘t‘,1)), (HP (‘r’,2)) ,(HP (‘a’,4)]
+   [(HP (‘k’,1)), (HP (‘s’,1)), (HP (‘t‘,1)), (HP (‘r’,2)) ,(HP (‘a’,4)]
 
-Zuhaitzen zerrendak zuhaitz bat baino gehiago duen bitartean egizue:
+* Zuhaitzen zerrendak zuhaitz bat baino gehiago duen bitartean egizue:
 
-* HuffmanZu zerrendako maiztasun txikien duten bi zuhaitzak lortu; hots, zerrendako lehengo biak, izan bitez t1 eta t2, eta 
-zerrendatik ezaba itzazue.
-* HuffmanZu zuhaitz berri bat eraiki, izan bedi t12 zuhaitza: ezkerreko azpizuahitza t1 izango du eta eskuinekoa t2, eta bere 
-erroan azpizuhaitz bien erroetako maiztasunen batura jasoko du.
-* HuffmanZu zuhaitzen zerrenda ordenatuan eta ordenazio irizpide berdina erabiliz t12 txerta ezazu zerrenda ordenatua utziaz:
-   [ (HP (‘t‘,1)),   (EP 2),  (HP (‘r’,2)) ,(HP (‘a’,4)]
-  
-  (HP (‘k’,1)), (HP (‘s’,1)),
+  * HuffmanZu zerrendako maiztasun txikien duten bi zuhaitzak lortu; hots, zerrendako lehengo biak, izan bitez t1 eta t2, eta 
+  zerrendatik ezaba itzazue.
+  * HuffmanZu zuhaitz berri bat eraiki, izan bedi t12 zuhaitza: ezkerreko azpizuahitza t1 izango du eta eskuinekoa t2, eta bere 
+  erroan azpizuhaitz bien erroetako maiztasunen batura jasoko du.
+  * HuffmanZu zuhaitzen zerrenda ordenatuan eta ordenazio irizpide berdina erabiliz t12 txerta ezazu zerrenda ordenatua utziaz::
+       [ (HP (‘t‘,1)),   (EP 2),  (HP (‘r’,2)) ,(HP (‘a’,4)]
+      (HP (‘k’,1)), (HP (‘s’,1)),
 
-Zuhaitzen zerrendak osagai bakarra duenean, hura itzuli::
-  * :: [HuffmanZu] ->HuffmanZu
+* Zuhaitzen zerrendak osagai bakarra duenean, hura itzuli::
+    * :: [HuffmanZu] ->HuffmanZu
 
 3 fasea
 ==========
 
-Helburua:   jatorrizko testua edo stringa kodetu, HuffmanZu zuhaitza erabiliz
-Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
+**Helburua**:   jatorrizko testua edo stringa kodetu, HuffmanZu zuhaitza erabiliz. Efektu hori kalkulatuko duen funtzioaren zehaztapena honako hau da::
   type Kode = String          -- ‘0’ eta ‘1’ karaktereez osatua
   kodetu:: String -> HuffmanZu-> Kode
 
-Prozesua
+**Prozesua**
 
-*Huffman zuhaitzetik abiaturik kodeketa-hitzen taula lortu behar duzue lehenen. Hau da, sarrerako karaktere desberdin 
+* Huffman zuhaitzetik abiaturik kodeketa-hitzen taula lortu behar duzue lehenen. Hau da, sarrerako karaktere desberdin 
 bakoitza ordezkatuko duen ‘0’ edo ’1’ karaktereen zerrenda. Taula, bikoteen zerrenda bat izango da, non bikotekeko 
 lehenengo osagaia karakterea izango den eta bigarrena hari dagokion kodeketa-hitza.
-
 * Zuhaitzak dituen adar adina kodeketa-hitz lortu behar dituzue.
 * Hosto bakoitza kodetu behar den karaktere desberdin bat da.
 * Karaktere bakoitzak kodetzeko erabiliko den kodeketa-hitzak, zuhaitzaren errotik hostoraino doan bideak ematen du:
