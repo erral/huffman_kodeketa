@@ -1,16 +1,5 @@
 module DmaAVL
- ( ZuAVL(),
-   eginAVL,            -- :: Ord a => [a] -> ZuAVL a
-   hutsaAVL,           -- :: ZuAVL a
-   hutsaDaAVL,         -- :: ZuAVL a -> Bool
-   txertatuAVL,        -- :: (Ord a) => a -> ZuAVL a -> ZuAVL a
-   ezabatuAVL,         -- :: (Ord a) => a -> ZuAVL a -> ZuAVL a
-   foldAVL,            -- :: (a -> b -> a -> a) -> a -> ZuAVL b -> a 
-   lautuAVL,           -- :: ZuAVL a -> [a]
-   dagoAVL,            -- :: Ord a => a -> ZuAVL a -> Bool 
-   daAVL,              -- :: ZuAVL a -> Bool
-   txertatuRAVL,       -- :: (Ord a, Ord b) => a -> ZuAVL a -> (a -> b) -> (a -> a) -> ZuAVL a                 
- )where
+ where
  data ZuAVL a = Hutsa | Errotu Int (ZuAVL a) a (ZuAVL a)
 
  instance (Show a) => Show (ZuAVL a) where

@@ -1,22 +1,13 @@
 module DmaZuBiP
- (ZuBiP(),
-  hostoZuBiP,
-  erroaZuBiP,
-  eraikiZuBiP,
-  bAdabegiKop, 
-  mapZuBiP, 
-  foldZuBiP, 
-  hostoKop,
-  erpinKop, 
-  garaiera, 
-  lautu,
-  lautuHostoak,
-  lautuBarnekoak,
- ) where
+ where
 
- data ZuBiP a b= HP a | EP b (ZuBiP a b) (ZuBiP a b) 
+ data ZuBiP a b= HP a | EP b (ZuBiP a b) (ZuBiP a b)
 
--- Show-ren instantzia  
+
+
+
+
+-- Show-ren instantzia
  instance (Show a,Show b) => Show (ZuBiP a b) where
    show = erakutsi
 
